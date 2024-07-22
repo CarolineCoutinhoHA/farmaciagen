@@ -3,7 +3,6 @@ package com.generation.farmaciagen.controller;
 import java.util.List;
 import java.util.Optional;
 
-import com.generation.farmaciagen.repository.CategoriaRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,9 +30,6 @@ public class ProdutosController {
     @Autowired
     private ProdutosRepository produtosRepository;
 
-    @Autowired
-    private CategoriaRepository categoriaRepository;
-
     @GetMapping
     public ResponseEntity<List<Produtos>> getAll() {
         return ResponseEntity.ok(produtosRepository.findAll());
@@ -53,11 +49,8 @@ public class ProdutosController {
 
     @PostMapping
     public ResponseEntity<Produtos> post(@Valid @RequestBody Produtos produtos) {
-       if (categoriaRepository.existsById(produtos.getCategoria().getId()))
-           return ResponseEntity.status(HttpStatus.CREATED)
-                   .body(produtosRepository.save(produtos));
-
-       throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!", null);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(produtosRepository.save(produtos));
     }
 
     @PutMapping
