@@ -1,9 +1,6 @@
 package com.generation.farmaciagen.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
-import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,27 +37,27 @@ public class Produtos {
         this.id = id;
     }
 
-    public @NotBlank(message = "O Atributo nome é Obrigatório!") @Size(min = 5, max = 100, message = "O atributo nome deve conter no mínimo 05 e no máximo 100 caracteres") String getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(@NotBlank(message = "O Atributo nome é Obrigatório!") @Size(min = 5, max = 100, message = "O atributo nome deve conter no mínimo 05 e no máximo 100 caracteres") String nome) {
+    public void setNome (String nome) {
         this.nome = nome;
     }
 
-    public @NotBlank(message = "O atributo descrição é Obrigatório!") @Size(min = 10, max = 1000, message = "O atributo descrição deve conter no mínimo 10 e no máximo 1000 caracteres") String getDescricao() {
+    public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(@NotBlank(message = "O atributo descrição é Obrigatório!") @Size(min = 10, max = 1000, message = "O atributo descrição deve conter no mínimo 10 e no máximo 1000 caracteres") String descricao) {
+    public void setDescricao (String descricao) {
         this.descricao = descricao;
     }
 
-    public @NotBlank(message = "O atributo validade é Obrigatório!") LocalDate getValidade() {
+    public LocalDate getValidade() {
         return validade;
     }
 
-    public void setValidade(@NotBlank(message = "O atributo validade é Obrigatório!") LocalDate validade) {
+    public void setValidade(LocalDate validade) {
         this.validade = validade;
     }
 }
