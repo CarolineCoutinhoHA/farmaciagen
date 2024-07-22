@@ -32,7 +32,7 @@ public class ProdutosController {
     private ProdutosRepository produtosRepository;
 
     @Autowired
-    private CategoriaRepository categoriaRepository;
+    private CategoriaRepository  categoriaRepository;
 
     @GetMapping
     public ResponseEntity<List<Produtos>> getAll() {
