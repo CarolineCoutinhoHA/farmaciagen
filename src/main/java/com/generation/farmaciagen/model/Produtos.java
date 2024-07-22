@@ -32,7 +32,6 @@ public class Produtos {
     @NotBlank(message = "O atributo validade é Obrigatório!")
     private LocalDate validade;
 
-
     public Long getId() {
         return id;
     }
